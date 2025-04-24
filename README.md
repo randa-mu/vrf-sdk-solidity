@@ -1,66 +1,88 @@
-## Foundry
+## dia-solidity
 
-**Foundry is a blazing fast, portable and modular toolkit for Ethereum application development written in Rust.**
+* [Introduction ](#introduction-)
+* [Local Development](#local-development)
+    * [Build](#build)
+    * [Test](#test)
+    * [Code Coverage](#code-coverage)
+    * [Format](#format)
+* [Smart Contracts Documentation](#smart-contracts-documentation)
+* [Scripts](#scripts)
+* [Security](#security)
+* [License](#license)
 
-Foundry consists of:
 
--   **Forge**: Ethereum testing framework (like Truffle, Hardhat and DappTools).
--   **Cast**: Swiss army knife for interacting with EVM smart contracts, sending transactions and getting chain data.
--   **Anvil**: Local Ethereum node, akin to Ganache, Hardhat Network.
--   **Chisel**: Fast, utilitarian, and verbose solidity REPL.
+## Introduction
 
-## Documentation
+## Local Development
 
-https://book.getfoundry.sh/
+This repository comes with a comprehensive set of tests written in Solidity, which can be executed using Foundry.
 
-## Usage
+To install Foundry:
+
+```sh
+curl -L https://foundry.paradigm.xyz | bash
+```
+
+This will download foundryup. To start Foundry, run:
+
+```sh
+foundryup
+```
+
+To clone the repo:
+
+```sh
+git clone https://github.com/randa-mu/dia-solidity
+```
 
 ### Build
 
-```shell
-$ forge build
+```sh
+forge build
 ```
 
 ### Test
+To run the unit-tests and the e2e tests:
+```sh
+FOUNDRY_PROFILE=test forge test --gas-report
+```
 
-```shell
-$ forge test
+### Code Coverage
+
+To run foundry coverage:
+```sh
+FOUNDRY_PROFILE=coverage forge coverage --report summary
+```
+
+This project also includes a [coverage.sh](dev/coverage.sh) script to generate and view test coverage reports using lcov. After the script runs, it generates and opens a html page showing lines of code covered by tests and those that have not been covered. If lcov is not installed, the script will attempt to install it automatically using Homebrew (macOS) or apt (Linux).
+
+To make the script executable:
+```sh
+chmod +x dev/coverage.sh
+```
+
+To run the script:
+```sh
+./dev/coverage.sh
 ```
 
 ### Format
 
-```shell
-$ forge fmt
+```sh
+forge fmt
 ```
 
-### Gas Snapshots
+## Smart Contracts Documentation
 
-```shell
-$ forge snapshot
+```sh
+forge doc --serve --port 4000
 ```
 
-### Anvil
+## Scripts
 
-```shell
-$ anvil
-```
+You can find `foundry scripts` inside the `/script` dir to interact with the contracts. For more details, please check the [scripts usage document](/script/README.md).
 
-### Deploy
+## Security
 
-```shell
-$ forge script script/Counter.s.sol:CounterScript --rpc-url <your_rpc_url> --private-key <your_private_key>
-```
-
-### Cast
-
-```shell
-$ cast <subcommand>
-```
-
-### Help
-
-```shell
-$ forge --help
-$ anvil --help
-$ cast --help
-```
+## License
