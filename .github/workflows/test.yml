@@ -1,43 +1,36 @@
-name: CI
+name: Foundry
 
 on:
   push:
+      branches:
+          - main
   pull_request:
-  workflow_dispatch:
 
-env:
-  FOUNDRY_PROFILE: ci
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
 
 jobs:
-  check:
-    strategy:
-      fail-fast: true
+  build-and-test:
+      runs-on: ubuntu-latest
+      steps:
+          - uses: actions/checkout@v3
+            with:
+                submodules: recursive
 
-    name: Foundry project
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          submodules: recursive
+          - name: Install foundry
+            uses: foundry-rs/foundry-toolchain@v1
+            with:
+                version: nightly
 
-      - name: Install Foundry
-        uses: foundry-rs/foundry-toolchain@v1
+          - name: Run foundry build
+            run: forge build --force --skip test --sizes
 
-      - name: Show Forge version
-        run: |
-          forge --version
+          - name: Run foundry fmt check
+            run: forge fmt --check    
 
-      - name: Run Forge fmt
-        run: |
-          forge fmt --check
-        id: fmt
+          - name: Run foundry tests
+            run: FOUNDRY_PROFILE=test forge test --gas-report
 
-      - name: Run Forge build
-        run: |
-          forge build --sizes
-        id: build
-
-      - name: Run Forge tests
-        run: |
-          forge test -vvv
-        id: test
+          - name: Run foundry coverage
+            run: FOUNDRY_PROFILE=coverage forge coverage --report summary
