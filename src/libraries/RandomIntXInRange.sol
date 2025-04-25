@@ -4,19 +4,13 @@ pragma solidity ^0.8;
 /// @title RandomIntXInRange
 /// @notice Generates pseudo-random signed integers within a range from a uint256 seed
 library RandomIntXInRange {
-    
     /// @notice Returns a random signed integer in the specified range.
     /// @param seed The seed value used for generating randomness.
     /// @param min The minimum value of the range.
     /// @param max The maximum value of the range.
     /// @param size The byte size of the integer (8, 16, 24, etc.).
     /// @return A pseudo-random signed integer within the range [min, max].
-    function nextIntInRange(
-        uint256 seed,
-        int256 min,
-        int256 max,
-        uint8 size
-    ) internal pure returns (int256) {
+    function nextIntInRange(uint256 seed, int256 min, int256 max, uint8 size) internal pure returns (int256) {
         require(min <= max, "Invalid range");
         if (min == max) return min;
 
