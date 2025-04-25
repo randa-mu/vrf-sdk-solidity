@@ -6,7 +6,7 @@ import {SwapOrNotShuffle} from "./SwapOrNotShuffle.sol";
 /// @title RandomnessUtils
 /// @notice Utility functions built on top of the SwapOrNotShuffle library for random selections.
 /// @dev This library depends on deterministic shuffle output from SwapOrNotShuffle.
-library RandomnessUtils {
+library RandomUtils {
     using SwapOrNotShuffle for uint256;
 
     /// @notice Picks a random index in range [0, size) using swap-or-not shuffled list
