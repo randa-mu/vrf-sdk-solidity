@@ -9,7 +9,7 @@ pragma solidity ^0.8;
 /// Swap-or-not is an oblivious shuffle: it can be applied to single list elements and subsets.
 /// This makes it ideal for supporting light clients.
 /// The swap-or-not shuffle can tell you the destination index (or, conversely, the origin index) of a single list
-/// element, so is ideal when dealing with subsets of the whole validator set.
+/// element.
 /// Security: Fully deterministic, suitable for consensus-critical logic (like validator or committee shuffling).
 /// Efficiency: Avoids the need for random access or large intermediate state — minimal memory, linear time.
 /// Gas-Optimized: In-place shuffling, works well within EVM gas constraints for small to medium sets.
