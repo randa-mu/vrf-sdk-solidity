@@ -16,7 +16,6 @@ library RandomIntXInRange {
             range = uint8(min) - uint8(max) + 1;
         }
 
-        // Calculate the scaled value within the range
         uint256 scaledValue = uint256(seed % range);
 
         int256 temp = int256(scaledValue) + min;
@@ -34,7 +33,6 @@ library RandomIntXInRange {
             range = uint16(min) - uint16(max) + 1;
         }
 
-        // Calculate the scaled value within the range
         uint256 scaledValue = uint256(seed % range );
 
         int256 temp = int256(scaledValue) + min;
@@ -52,7 +50,6 @@ library RandomIntXInRange {
             range = uint24(min) - uint24(max) + 1;
         }
 
-        // Calculate the scaled value within the range
         uint256 scaledValue = uint256(seed % range );
 
         int256 temp = int256(scaledValue) + min;
@@ -70,7 +67,6 @@ library RandomIntXInRange {
             range = uint32(min) - uint32(max) + 1;
         }
 
-        // Calculate the scaled value within the range
         uint256 scaledValue = uint256(seed % range );
 
         int256 temp = int256(scaledValue) + min;
@@ -88,7 +84,6 @@ library RandomIntXInRange {
             range = uint40(min) - uint40(max) + 1;
         }
 
-        // Calculate the scaled value within the range
         uint256 scaledValue = uint256(seed % range );
 
         int256 temp = int256(scaledValue) + min;
@@ -106,7 +101,6 @@ library RandomIntXInRange {
             range = uint48(min) - uint48(max) + 1;
         }
 
-        // Calculate the scaled value within the range
         uint256 scaledValue = uint256(seed % range );
 
         int256 temp = int256(scaledValue) + min;
@@ -124,7 +118,6 @@ library RandomIntXInRange {
             range = uint56(min) - uint56(max) + 1;
         }
 
-        // Calculate the scaled value within the range
         uint256 scaledValue = uint256(seed % range );
 
         int256 temp = int256(scaledValue) + min;
@@ -142,7 +135,6 @@ library RandomIntXInRange {
             range = uint64(min) - uint64(max) + 1;
         }
 
-        // Calculate the scaled value within the range
         uint256 scaledValue = uint256(seed % range );
 
         int256 temp = int256(scaledValue) + min;
@@ -160,7 +152,6 @@ library RandomIntXInRange {
             range = uint72(min) - uint72(max) + 1;
         }
 
-        // Calculate the scaled value within the range
         uint256 scaledValue = uint256(seed % range );
 
         int256 temp = int256(scaledValue) + min;
@@ -178,7 +169,6 @@ library RandomIntXInRange {
             range = uint80(min) - uint80(max) + 1;
         }
 
-        // Calculate the scaled value within the range
         uint256 scaledValue = uint256(seed % range );
 
         int256 temp = int256(scaledValue) + min;
@@ -196,7 +186,6 @@ library RandomIntXInRange {
             range = uint88(min) - uint88(max) + 1;
         }
 
-        // Calculate the scaled value within the range
         uint256 scaledValue = uint256(seed % range );
 
         int256 temp = int256(scaledValue) + min;
@@ -214,7 +203,6 @@ library RandomIntXInRange {
             range = uint96(min) - uint96(max) + 1;
         }
 
-        // Calculate the scaled value within the range
         uint256 scaledValue = uint256(seed % range );
 
         int256 temp = int256(scaledValue) + min;
@@ -232,7 +220,6 @@ library RandomIntXInRange {
             range = uint104(min) - uint104(max) + 1;
         }
 
-        // Calculate the scaled value within the range
         uint256 scaledValue = uint256(seed % range );
 
         int256 temp = int256(scaledValue) + min;
@@ -250,7 +237,6 @@ library RandomIntXInRange {
             range = uint112(min) - uint112(max) + 1;
         }
 
-        // Calculate the scaled value within the range
         uint256 scaledValue = uint256(seed % range );
 
         int256 temp = int256(scaledValue) + min;
@@ -268,7 +254,6 @@ library RandomIntXInRange {
             range = uint120(min) - uint120(max) + 1;
         }
 
-        // Calculate the scaled value within the range
         uint256 scaledValue = uint256(seed % range );
 
         int256 temp = int256(scaledValue) + min;
@@ -286,7 +271,6 @@ library RandomIntXInRange {
             range = uint128(min) - uint128(max) + 1;
         }
 
-        // Calculate the scaled value within the range
         uint256 scaledValue = uint256(seed % range );
 
         int256 temp = int256(scaledValue) + min;
@@ -304,7 +288,6 @@ library RandomIntXInRange {
             range = uint136(min) - uint136(max) + 1;
         }
 
-        // Calculate the scaled value within the range
         uint256 scaledValue = uint256(seed % range );
 
         int256 temp = int256(scaledValue) + min;
@@ -322,7 +305,6 @@ library RandomIntXInRange {
             range = uint144(min) - uint144(max) + 1;
         }
 
-        // Calculate the scaled value within the range
         uint256 scaledValue = uint256(seed % range );
 
         int256 temp = int256(scaledValue) + min;
@@ -340,7 +322,6 @@ library RandomIntXInRange {
             range = uint152(min) - uint152(max) + 1;
         }
 
-        // Calculate the scaled value within the range
         uint256 scaledValue = uint256(seed % range );
 
         int256 temp = int256(scaledValue) + min;
@@ -358,7 +339,6 @@ library RandomIntXInRange {
             range = uint160(min) - uint160(max) + 1;
         }
 
-        // Calculate the scaled value within the range
         uint256 scaledValue = uint256(seed % range );
 
         int256 temp = int256(scaledValue) + min;
@@ -376,7 +356,6 @@ library RandomIntXInRange {
             range = uint168(min) - uint168(max) + 1;
         }
 
-        // Calculate the scaled value within the range
         uint256 scaledValue = uint256(seed % range );
 
         int256 temp = int256(scaledValue) + min;
@@ -394,7 +373,6 @@ library RandomIntXInRange {
             range = uint176(min) - uint176(max) + 1;
         }
 
-        // Calculate the scaled value within the range
         uint256 scaledValue = uint256(seed % range );
 
         int256 temp = int256(scaledValue) + min;
@@ -412,7 +390,6 @@ library RandomIntXInRange {
             range = uint184(min) - uint184(max) + 1;
         }
 
-        // Calculate the scaled value within the range
         uint256 scaledValue = uint256(seed % range );
 
         int256 temp = int256(scaledValue) + min;
@@ -430,7 +407,6 @@ library RandomIntXInRange {
             range = uint192(min) - uint192(max) + 1;
         }
 
-        // Calculate the scaled value within the range
         uint256 scaledValue = uint256(seed % range );
 
         int256 temp = int256(scaledValue) + min;
@@ -448,7 +424,6 @@ library RandomIntXInRange {
             range = uint200(min) - uint200(max) + 1;
         }
 
-        // Calculate the scaled value within the range
         uint256 scaledValue = uint256(seed % range );
 
         int256 temp = int256(scaledValue) + min;
@@ -466,7 +441,6 @@ library RandomIntXInRange {
             range = uint208(min) - uint208(max) + 1;
         }
 
-        // Calculate the scaled value within the range
         uint256 scaledValue = uint256(seed % range );
 
         int256 temp = int256(scaledValue) + min;
@@ -484,7 +458,6 @@ library RandomIntXInRange {
             range = uint216(min) - uint216(max) + 1;
         }
 
-        // Calculate the scaled value within the range
         uint256 scaledValue = uint256(seed % range );
 
         int256 temp = int256(scaledValue) + min;
@@ -502,7 +475,6 @@ library RandomIntXInRange {
             range = uint224(min) - uint224(max) + 1;
         }
 
-        // Calculate the scaled value within the range
         uint256 scaledValue = uint256(seed % range );
 
         int256 temp = int256(scaledValue) + min;
@@ -520,7 +492,6 @@ library RandomIntXInRange {
             range = uint232(min) - uint232(max) + 1;
         }
 
-        // Calculate the scaled value within the range
         uint256 scaledValue = uint256(seed % range );
 
         int256 temp = int256(scaledValue) + min;
@@ -538,7 +509,6 @@ library RandomIntXInRange {
             range = uint240(min) - uint240(max) + 1;
         }
 
-        // Calculate the scaled value within the range
         uint256 scaledValue = uint256(seed % range );
 
         int256 temp = int256(scaledValue) + min;
@@ -556,7 +526,6 @@ library RandomIntXInRange {
             range = uint248(min) - uint248(max) + 1;
         }
 
-        // Calculate the scaled value within the range
         uint256 scaledValue = uint256(seed % range );
 
         int256 temp = int256(scaledValue) + min;
@@ -567,7 +536,6 @@ library RandomIntXInRange {
         require(min <= max, "Invalid range");
         if (min == max) return min;
         int256 range = max - min + 1;
-        // Ensure correct casting to int256
         return min + int256(seed % uint256(range));  
     }
 }
