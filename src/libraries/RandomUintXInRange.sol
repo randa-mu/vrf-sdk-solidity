@@ -14,7 +14,8 @@ library RandomUintXInRange {
         if (min == max) return min;
 
         uint256 range = max - min + 1;
-        return min + (seed % range);
+        uint256 scaledValue = seed % range;
+        return scaledValue + min;
     }
 
     /// @notice Generates a random uint8 value within a specified range.
