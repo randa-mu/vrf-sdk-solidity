@@ -6,13 +6,13 @@ pragma solidity ^0.8;
 /// @dev Accepts a uint256 seed, which is internally converted to bytes32.
 /// Ethereum 2 uses a “swap-or-not” shuffle,
 /// to randomly assign validators to committees and choose block proposers.
-/// Swap-or-not is an oblivious shuffle: it can be applied to single list elements and subsets.
+/// Swap-or-not is an oblivious shuffle: it can be applied to single list elements and subsets and can
+/// return the destination index (or, conversely, the origin index) of a single list element.
 /// This makes it ideal for supporting light clients.
-/// The swap-or-not shuffle can tell you the destination index (or, conversely, the origin index) of a single list
-/// element.
-/// Security: Fully deterministic, suitable for consensus-critical logic (like validator or committee shuffling).
-/// Efficiency: Avoids the need for random access or large intermediate state — minimal memory, linear time.
-/// Gas-Optimized: In-place shuffling, works well within EVM gas constraints for small to medium sets.
+/// “swap-or-not” shuffle benefits from the following features:
+///     1. Security: Fully deterministic, suitable for consensus-critical logic (like validator or committee shuffling).
+///     2. Efficiency: Avoids the need for random access or large intermediate state — minimal memory, linear time.
+///     3. Gas-Optimized: In-place shuffling, works well within EVM gas constraints for small to medium sets.
 /// References:
 ///     1. https://github.com/ethereum/consensus-specs/blob/v1.3.0/specs/phase0/beacon-chain.md#misc-2
 ///     2. https://eth2book.info/capella/book.pdf
