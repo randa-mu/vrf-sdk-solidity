@@ -3,7 +3,6 @@ pragma solidity ^0.8;
 
 /// @title RandomUintXInRange
 /// @notice Generates pseudo-random unsigned integers within a range from a uint256 seed
-// SPDX-License-Identifier: MIT
 library RandomUintXInRange {
     /// @notice Returns a random unsigned integer in the range [min, max] inclusive
     /// @param seed The seed value used to generate the random number
