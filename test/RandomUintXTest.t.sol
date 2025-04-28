@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity 0.8.28;
 
-import {Test, console} from "forge-std/Test.sol";
+import {Test} from "forge-std/Test.sol";
 
 import {RandomUintX} from "../src/libraries/RandomUintX.sol";
 
@@ -9,6 +9,8 @@ contract RandomUintXTest is Test {
     function test_NextUint8() public pure {
         uint256 seed = 1223;
         uint8 result = RandomUintX.nextUint8(seed);
+        /// @notice Unsigned integers always start at 0, and no negative values are possible,
+        ///         so assertGe(result, type(uint8).min) is redundant.
         assertLe(result, type(uint8).max, "invalid uint8");
     }
 
@@ -135,67 +137,66 @@ contract RandomUintXTest is Test {
     function test_NextUint176() public pure {
         uint256 seed = 666768;
         uint176 result = RandomUintX.nextUint176(seed);
-        assertLt(result, type(uint176).max, "invalid uint176");
+        assertLe(result, type(uint176).max, "invalid uint176");
     }
 
     function test_NextUint184() public pure {
         uint256 seed = 697071;
         uint184 result = RandomUintX.nextUint184(seed);
-        assertLt(result, type(uint184).max, "invalid uint184");
+        assertLe(result, type(uint184).max, "invalid uint184");
     }
 
     function test_NextUint192() public pure {
         uint256 seed = 727374;
         uint192 result = RandomUintX.nextUint192(seed);
-        assertLt(result, type(uint192).max, "invalid uint192");
+        assertLe(result, type(uint192).max, "invalid uint192");
     }
 
     function test_NextUint200() public pure {
         uint256 seed = 757677;
         uint200 result = RandomUintX.nextUint200(seed);
-        assertLt(result, type(uint200).max, "invalid uint200");
+        assertLe(result, type(uint200).max, "invalid uint200");
     }
 
     function test_NextUint208() public pure {
         uint256 seed = 787980;
         uint208 result = RandomUintX.nextUint208(seed);
-        assertLt(result, type(uint208).max, "invalid uint208");
+        assertLe(result, type(uint208).max, "invalid uint208");
     }
 
     function test_NextUint216() public pure {
         uint256 seed = 818283;
         uint216 result = RandomUintX.nextUint216(seed);
-        assertLt(result, type(uint216).max, "invalid uint216");
+        assertLe(result, type(uint216).max, "invalid uint216");
     }
 
     function test_NextUint224() public pure {
         uint256 seed = 848586;
         uint224 result = RandomUintX.nextUint224(seed);
-        assertLt(result, type(uint224).max, "invalid uint224");
+        assertLe(result, type(uint224).max, "invalid uint224");
     }
 
     function test_NextUint232() public pure {
         uint256 seed = 878889;
         uint232 result = RandomUintX.nextUint232(seed);
-        assertLt(result, type(uint232).max, "invalid uint232");
+        assertLe(result, type(uint232).max, "invalid uint232");
     }
 
     function test_NextUint240() public pure {
         uint256 seed = 909192;
         uint240 result = RandomUintX.nextUint240(seed);
-        assertLt(result, type(uint240).max, "invalid uint240");
+        assertLe(result, type(uint240).max, "invalid uint240");
     }
 
     function test_NextUint248() public pure {
         uint256 seed = 939495;
         uint248 result = RandomUintX.nextUint248(seed);
-        assertLt(result, type(uint248).max, "invalid uint248");
-        console.log(result);
+        assertLe(result, type(uint248).max, "invalid uint248");
     }
 
     function test_NextUint256() public pure {
         uint256 seed = 969798;
         uint256 result = RandomUintX.nextUint256(seed);
-        assertLt(result, type(uint256).max, "invalid uint256");
+        assertLe(result, type(uint256).max, "invalid uint256");
     }
 }
