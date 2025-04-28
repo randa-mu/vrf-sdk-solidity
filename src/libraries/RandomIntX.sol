@@ -22,7 +22,7 @@ library RandomIntX {
     /// @param seed The input seed used to generate the random number.
     /// @return A random int24 value.
     function nextInt24(uint256 seed) internal pure returns (int24) {
-        return int24(uint24(seed & 0xFFFFFF));
+        return int24(uint24(seed & type(uint24).max));
     }
 
     /// @notice Generates a random int32 from the provided seed.
@@ -36,21 +36,21 @@ library RandomIntX {
     /// @param seed The input seed used to generate the random number.
     /// @return A random int40 value.
     function nextInt40(uint256 seed) internal pure returns (int40) {
-        return int40(uint40(seed & 0xFFFFFFFFFF));
+        return int40(uint40(seed & type(uint40).max));
     }
 
     /// @notice Generates a random int48 from the provided seed.
     /// @param seed The input seed used to generate the random number.
     /// @return A random int48 value.
     function nextInt48(uint256 seed) internal pure returns (int48) {
-        return int48(uint48(seed & 0xFFFFFFFFFFFF));
+        return int48(uint48(seed & type(uint48).max));
     }
 
     /// @notice Generates a random int56 from the provided seed.
     /// @param seed The input seed used to generate the random number.
     /// @return A random int56 value.
     function nextInt56(uint256 seed) internal pure returns (int56) {
-        return int56(uint56(seed & 0xFFFFFFFFFFFFFF));
+        return int56(uint56(seed & type(uint56).max));
     }
 
     /// @notice Generates a random int64 from the provided seed.
@@ -64,21 +64,21 @@ library RandomIntX {
     /// @param seed The input seed used to generate the random number.
     /// @return A random int72 value.
     function nextInt72(uint256 seed) internal pure returns (int72) {
-        return int72(uint72(seed & 0xFFFFFFFFFFFFFFFFFF));
+        return int72(uint72(seed & type(uint72).max));
     }
 
     /// @notice Generates a random int80 from the provided seed.
     /// @param seed The input seed used to generate the random number.
     /// @return A random int80 value.
     function nextInt80(uint256 seed) internal pure returns (int80) {
-        return int80(uint80(seed & 0xFFFFFFFFFFFFFFFFFFFF));
+        return int80(uint80(seed & type(uint80).max));
     }
 
     /// @notice Generates a random int88 from the provided seed.
     /// @param seed The input seed used to generate the random number.
     /// @return A random int88 value.
     function nextInt88(uint256 seed) internal pure returns (int88) {
-        return int88(uint88(seed & 0xFFFFFFFFFFFFFFFFFFFFFF));
+        return int88(uint88(seed & type(uint88).max));
     }
 
     /// @notice Generates a random int96 from the provided seed.
@@ -92,21 +92,21 @@ library RandomIntX {
     /// @param seed The input seed used to generate the random number.
     /// @return A random int104 value.
     function nextInt104(uint256 seed) internal pure returns (int104) {
-        return int104(uint104(seed & 0xFFFFFFFFFFFFFFFFFFFFFFFFFF));
+        return int104(uint104(seed & type(uint104).max));
     }
 
     /// @notice Generates a random int112 from the provided seed.
     /// @param seed The input seed used to generate the random number.
     /// @return A random int112 value.
     function nextInt112(uint256 seed) internal pure returns (int112) {
-        return int112(uint112(seed & 0xFFFFFFFFFFFFFFFFFFFFFFFFFFFF));
+        return int112(uint112(seed & type(uint112).max));
     }
 
     /// @notice Generates a random int120 from the provided seed.
     /// @param seed The input seed used to generate the random number.
     /// @return A random int120 value.
     function nextInt120(uint256 seed) internal pure returns (int120) {
-        return int120(uint120(seed & 0xFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF));
+        return int120(uint120(seed & type(uint120).max));
     }
 
     /// @notice Generates a random int128 from the provided seed.
@@ -120,21 +120,21 @@ library RandomIntX {
     /// @param seed The input seed used to generate the random number.
     /// @return A random int136 value.
     function nextInt136(uint256 seed) internal pure returns (int136) {
-        return int136(uint136(seed & 0xFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF));
+        return int136(uint136(seed & type(uint136).max));
     }
 
     /// @notice Generates a random int144 from the provided seed.
     /// @param seed The input seed used to generate the random number.
     /// @return A random int144 value.
     function nextInt144(uint256 seed) internal pure returns (int144) {
-        return int144(uint144(seed & 0xFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF));
+        return int144(uint144(seed & type(uint144).max));
     }
 
     /// @notice Generates a random int152 from the provided seed.
     /// @param seed The input seed used to generate the random number.
     /// @return A random int152 value.
     function nextInt152(uint256 seed) internal pure returns (int152) {
-        return int152(uint152(seed & 0xFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF));
+        return int152(uint152(seed & type(uint152).max));
     }
 
     /// @notice Generates a random int160 from the provided seed.
@@ -148,21 +148,21 @@ library RandomIntX {
     /// @param seed The input seed used to generate the random number.
     /// @return A random int168 value.
     function nextInt168(uint256 seed) internal pure returns (int168) {
-        return int168(uint168(seed & 0xFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF));
+        return int168(uint168(seed & type(uint168).max));
     }
 
     /// @notice Generates a random int176 from the provided seed.
     /// @param seed The input seed used to generate the random number.
     /// @return A random int176 value.
     function nextInt176(uint256 seed) internal pure returns (int176) {
-        return int176(uint176(seed & 0xFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF));
+        return int176(uint176(seed & type(uint176).max));
     }
 
     /// @notice Generates a random int184 from the provided seed.
     /// @param seed The input seed used to generate the random number.
     /// @return A random int184 value.
     function nextInt184(uint256 seed) internal pure returns (int184) {
-        return int184(uint184(seed & 0xFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF));
+        return int184(uint184(seed & type(uint184).max));
     }
 
     /// @notice Generates a random int192 from the provided seed.
@@ -176,21 +176,21 @@ library RandomIntX {
     /// @param seed The input seed used to generate the random number.
     /// @return A random int200 value.
     function nextInt200(uint256 seed) internal pure returns (int200) {
-        return int200(uint200(seed & 0xFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF));
+        return int200(uint200(seed & type(uint200).max));
     }
 
     /// @notice Generates a random int208 from the provided seed.
     /// @param seed The input seed used to generate the random number.
     /// @return A random int208 value.
     function nextInt208(uint256 seed) internal pure returns (int208) {
-        return int208(uint208(seed & 0xFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF));
+        return int208(uint208(seed & type(uint208).max));
     }
 
     /// @notice Generates a random int216 from the provided seed.
     /// @param seed The input seed used to generate the random number.
     /// @return A random int216 value.
     function nextInt216(uint256 seed) internal pure returns (int216) {
-        return int216(uint216(seed & 0xFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF));
+        return int216(uint216(seed & type(uint216).max));
     }
 
     /// @notice Generates a random int224 from the provided seed.
@@ -204,21 +204,21 @@ library RandomIntX {
     /// @param seed The input seed used to generate the random number.
     /// @return A random int232 value.
     function nextInt232(uint256 seed) internal pure returns (int232) {
-        return int232(uint232(seed & 0xFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF));
+        return int232(uint232(seed & type(uint232).max));
     }
 
     /// @notice Generates a random int240 from the provided seed.
     /// @param seed The input seed used to generate the random number.
     /// @return A random int240 value.
     function nextInt240(uint256 seed) internal pure returns (int240) {
-        return int240(uint240(seed & 0xFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF));
+        return int240(uint240(seed & type(uint240).max));
     }
 
     /// @notice Generates a random int248 from the provided seed.
     /// @param seed The input seed used to generate the random number.
     /// @return A random int248 value.
     function nextInt248(uint256 seed) internal pure returns (int248) {
-        return int248(uint248(seed & 0xFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF));
+        return int248(uint248(seed & type(uint248).max));
     }
 
     /// @notice Generates a random int256 from the provided seed.
