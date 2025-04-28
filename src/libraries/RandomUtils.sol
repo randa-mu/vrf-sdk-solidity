@@ -50,7 +50,7 @@ library RandomUtils {
     /// @param mod The modulus
     /// @return result `seed % mod`
     function getModdedValue(uint256 seed, uint64 mod) internal pure returns (uint64 result) {
-        require(mod > 0, "Mod must be > 0");
+        require(mod > 0, "Mod must be greater than 0");
         result = uint64(seed % mod);
     }
 
@@ -59,7 +59,7 @@ library RandomUtils {
     /// @param mod The modulus
     /// @return result Pseudo-random value in the range [-mod + 1, mod - 1]
     function getSignedModdedValue(uint256 seed, int64 mod) internal pure returns (int64 result) {
-        require(mod > 0, "Mod must be > 0");
+        require(mod > 0, "Mod must be greater than 0");
         uint64 unsignedMod = uint64(uint64(mod)); // Safe conversion
         uint64 uval = uint64(seed % unsignedMod); // Always in [0, mod)
         bool isNegative = (seed & 1) == 1; // Use LSB to decide sign
