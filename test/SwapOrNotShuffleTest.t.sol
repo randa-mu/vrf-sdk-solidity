@@ -5,9 +5,9 @@ import {Test} from "forge-std/Test.sol";
 
 import "../src/mocks/ShuffleMock.sol";
 
-/// @title TestSwapOrNotShuffle
+/// @title SwapOrNotShuffleTest
 /// @notice Tests the SwapOrNotShuffle library via a mock wrapper contract.
-contract TestSwapOrNotShuffle is Test {
+contract SwapOrNotShuffleTest is Test {
     ShuffleMock mock;
 
     function setUp() public {
