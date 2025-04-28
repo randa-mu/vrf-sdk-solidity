@@ -81,8 +81,10 @@ contract TestSwapOrNotShuffleTest is Test {
 
     /// @dev Fuzz test to verify that computeShuffledIndex never reverts with valid index/count and arbitrary seed
     function testFuzz_ComputeShuffledIndex(uint64 index, uint64 count, uint256 seed) public view {
-        count = uint64(bound(uint256(count), 1, 1000)); // Avoid zero and too large indexCount for gas/loop reasons
-        index = uint64(bound(uint256(index), 0, count - 1)); // Ensure valid index
+        // Avoid zero and too large indexCount for gas/loop reasons
+        count = uint64(bound(uint256(count), 1, 1000)); 
+        // Ensure valid index
+        index = uint64(bound(uint256(index), 0, count - 1)); 
 
         uint64 result = mock.computeShuffledIndex(index, count, seed);
         assertLt(result, count, "Result must be within index count");
@@ -90,7 +92,8 @@ contract TestSwapOrNotShuffleTest is Test {
 
     /// @dev Fuzz test to check that shuffleIndices returns unique and bounded results for arbitrary seeds
     function testFuzz_ShuffleIndices(uint64 count, uint256 seed) public view {
-        count = uint64(bound(uint256(count), 2, 100)); // Keep it reasonable for gas and logic
+        // Keep it reasonable for gas and logic
+        count = uint64(bound(uint256(count), 2, 100)); 
         uint64[] memory result = mock.shuffleIndices(count, seed);
 
         assertEq(result.length, count, "Shuffled result should match count");
