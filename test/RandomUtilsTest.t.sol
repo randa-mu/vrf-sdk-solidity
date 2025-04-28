@@ -6,7 +6,15 @@ import {Test} from "forge-std/Test.sol";
 import {RandomUtils} from "../src/libraries/RandomUtils.sol"; // Adjust the path as needed
 import {SwapOrNotShuffle} from "../src/libraries/SwapOrNotShuffle.sol";
 
+import {MockRandomLibsUser} from "../src/mocks/MockRandomLibsUser.sol";
+
 contract RandomUtilsTest is Test {
+    MockRandomLibsUser mock;
+
+    function setUp() public {
+        mock = new MockRandomLibsUser();
+    }
+
     function test_getRandomIndex() public pure {
         uint256 seed = 12345;
         uint64 size = 10;
@@ -58,6 +66,58 @@ contract RandomUtilsTest is Test {
         assertGe(result, -mod + 1, "Signed modded value should be >= min bound");
         assertLe(result, mod - 1, "Signed modded value should be <= max bound");
     }
+
+    /// @dev Verifies that the function correctly enforces size > 0.
+    function test_GetRandomIndex_ZeroSize() public {
+        uint256 seed = 123456;
+
+        // Expect revert because size is 0
+        vm.expectRevert("Size must be > 0");
+        mock.getRandomIndex(seed, 0);
+    }
+
+    function test_GetRandomIndices_SizeLessThanNumberOfRequiredIndices() public {
+        uint256 seed = 123456;
+
+        vm.expectRevert("Cannot pick more elements than available");
+        mock.getNRandomIndices(seed, 0, 1);
+
+        vm.expectRevert("Cannot pick more elements than available");
+        mock.getNRandomIndices(seed, 5, 10);
+    }
+
+    function test_GetModdedValue_ZeroMod() public {
+        uint256 seed = 123456;
+
+        vm.expectRevert("Mod must be greater than 0");
+        mock.getModdedValue(seed, 0);
+    }
+
+    function test_GetSignedModdedValue_ZeroMod() public {
+        uint256 seed = 123456;
+
+        vm.expectRevert("Mod must be greater than 0");
+        mock.getSignedModdedValue(seed, 0);
+    }
+
+    function test_GetNextIntInRange_MinGreaterThanMax() public {
+        uint256 seed = 123456;
+        int256 min = 255;
+        int256 max = type(int256).min;
+
+        vm.expectRevert("Invalid range");
+        mock.getNextIntInRange(seed, min, max);
+    }
+
+    function test_GetNextUintInRange_MinGreaterThanMax() public {
+        uint256 seed = 123456;
+        uint256 min = 255;
+        uint256 max = type(uint256).min;
+
+        vm.expectRevert("Invalid range");
+        mock.getNextUintInRange(seed, min, max);
+    }
+
 
     // Fuzz test for getRandomIndex with multiple random sizes and seeds
     function test_getRandomIndexFuzz() public view {

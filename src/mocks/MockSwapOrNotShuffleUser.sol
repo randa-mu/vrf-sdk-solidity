@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity 0.8.28;
 
-import "../libraries/SwapOrNotShuffle.sol";
+import {SwapOrNotShuffle} from "../libraries/SwapOrNotShuffle.sol";
 
 /// @title MockSwapOrNotShuffleUser
 /// @notice Simple mock contract to expose swap-or-not shuffle library functions for testing.
