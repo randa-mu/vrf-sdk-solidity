@@ -3,9 +3,9 @@ pragma solidity 0.8.28;
 
 import "../libraries/SwapOrNotShuffle.sol";
 
-/// @title ShuffleMock
+/// @title MockSwapOrNotShuffleUser
 /// @notice Simple mock contract to expose swap-or-not shuffle library functions for testing.
-contract ShuffleMock {
+contract MockSwapOrNotShuffleUser {
     using SwapOrNotShuffle for uint64;
 
     function computeShuffledIndex(uint64 index, uint64 count, uint256 seed) external pure returns (uint64) {
