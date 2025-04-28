@@ -15,4 +15,8 @@ contract MockSwapOrNotShuffleUser {
     function shuffleIndices(uint64 count, uint256 seed) external pure returns (uint64[] memory) {
         return SwapOrNotShuffle.shuffleIndices(count, seed);
     }
+
+    function callBytesToUint64(bytes memory input) external view returns (uint64) {
+        return SwapOrNotShuffle.bytesToUint64(input);
+    }
 }

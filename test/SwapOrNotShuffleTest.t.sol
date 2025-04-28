@@ -103,4 +103,42 @@ contract SwapOrNotShuffleTest is Test {
             seen[result[i]] = true;
         }
     }
+
+    function test_BytesToUint64_CorrectConversion() public view {
+        bytes memory input = hex"0102030405060708";
+        uint64 expected = 0x0102030405060708;
+        uint64 result = mock.callBytesToUint64(input);
+
+        assertEq(result, expected, "Incorrect uint64 conversion from bytes");
+    }
+
+    function test_BytesToUint64_InvalidLength() public {
+        bytes memory input = hex"01020304"; // Only 4 bytes
+
+        // Expect revert due to invalid length
+        vm.expectRevert("Invalid bytes length");
+        mock.callBytesToUint64(input);
+    }
+
+    function test_BytesToUint64_Fuzz(bytes memory input) public view {
+        // Skip invalid inputs
+        /// manual approach will be - if (input.length < 8) return;
+        /// @dev `vm.assume` filters the fuzzed inputs so that only those with length >= 8 continue execution
+        vm.assume(input.length >= 8); 
+
+        uint64 result = mock.callBytesToUint64(input);
+
+        // No assertion about exact value
+        // Only checking to ensure it doesn't revert with valid input
+        assertTrue(result >= 0, "Result should be a valid uint64 number"); 
+    }
+
+    function testFuzz_BytesToUint64_InvalidLength(bytes memory input) public {
+        /// @dev `vm.assume` filters the fuzzed inputs so that only those with length < 8 continue execution
+        vm.assume(input.length < 8);
+
+        vm.expectRevert("Invalid bytes length");
+        mock.callBytesToUint64(input);
+    }
+
 }
