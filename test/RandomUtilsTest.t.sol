@@ -118,7 +118,6 @@ contract RandomUtilsTest is Test {
         mock.getNextUintInRange(seed, min, max);
     }
 
-
     // Fuzz test for getRandomIndex with multiple random sizes and seeds
     function test_getRandomIndexFuzz() public view {
         for (uint256 i = 0; i < 10; i++) {

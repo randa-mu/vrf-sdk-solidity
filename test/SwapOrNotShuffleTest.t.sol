@@ -124,13 +124,13 @@ contract SwapOrNotShuffleTest is Test {
         // Skip invalid inputs
         /// manual approach will be - if (input.length < 8) return;
         /// @dev `vm.assume` filters the fuzzed inputs so that only those with length >= 8 continue execution
-        vm.assume(input.length >= 8); 
+        vm.assume(input.length >= 8);
 
         uint64 result = mock.callBytesToUint64(input);
 
         // No assertion about exact value
         // Only checking to ensure it doesn't revert with valid input
-        assertTrue(result >= 0, "Result should be a valid uint64 number"); 
+        assertTrue(result >= 0, "Result should be a valid uint64 number");
     }
 
     function testFuzz_BytesToUint64_InvalidLength(bytes memory input) public {
@@ -140,5 +140,4 @@ contract SwapOrNotShuffleTest is Test {
         vm.expectRevert("Invalid bytes length");
         mock.callBytesToUint64(input);
     }
-
 }
