@@ -6,7 +6,7 @@ import {RandomIntXInRange} from "../libraries/RandomIntXInRange.sol";
 import {RandomUintXInRange} from "../libraries/RandomUintXInRange.sol";
 import {SwapOrNotShuffle} from "../libraries/SwapOrNotShuffle.sol";
 
-/// @title MockRandomLibsUser
+/// @title MockRandomnessConsumer
 /// @notice Simple mock contract to expose library functions for testing.
 contract MockRandomnessConsumer {
     using RandomUtils for uint256;
