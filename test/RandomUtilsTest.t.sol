@@ -6,13 +6,13 @@ import {Test} from "forge-std/Test.sol";
 import {RandomUtils} from "../src/libraries/RandomUtils.sol"; // Adjust the path as needed
 import {SwapOrNotShuffle} from "../src/libraries/SwapOrNotShuffle.sol";
 
-import {MockRandomLibsUser} from "../src/mocks/MockRandomLibsUser.sol";
+import {MockRandomnessConsumer} from "../src/mocks/MockRandomnessConsumer.sol";
 
 contract RandomUtilsTest is Test {
-    MockRandomLibsUser mock;
+    MockRandomnessConsumer mock;
 
     function setUp() public {
-        mock = new MockRandomLibsUser();
+        mock = new MockRandomnessConsumer();
     }
 
     function test_getRandomIndex() public pure {

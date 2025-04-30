@@ -3,15 +3,15 @@ pragma solidity 0.8.28;
 
 import {Test} from "forge-std/Test.sol";
 
-import {MockSwapOrNotShuffleUser} from "../src/mocks/MockSwapOrNotShuffleUser.sol";
+import {MockRandomnessConsumer} from "../src/mocks/MockRandomnessConsumer.sol";
 
 /// @title SwapOrNotShuffleTest
 /// @notice Tests the SwapOrNotShuffle library via a mock wrapper contract.
 contract SwapOrNotShuffleTest is Test {
-    MockSwapOrNotShuffleUser mock;
+    MockRandomnessConsumer mock;
 
     function setUp() public {
-        mock = new MockSwapOrNotShuffleUser();
+        mock = new MockRandomnessConsumer();
     }
 
     /// @dev Test to ensure that the shuffled index is deterministic for the same index and seed.
