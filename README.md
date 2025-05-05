@@ -7,12 +7,38 @@
     * [Code Coverage](#code-coverage)
     * [Format](#format)
 * [Smart Contracts Documentation](#smart-contracts-documentation)
-* [Scripts](#scripts)
-* [Security](#security)
 * [License](#license)
 
 
 ## Introduction
+
+A lightweight collection of Solidity libraries and contracts for generating random integers, unsigned integers, and deterministic shuffles — built for composability and efficiency in smart contracts.
+
+Included Modules:
+
+- [RandomIntX.sol](src/libraries/RandomIntX.sol) – Generates pseudo-random signed integers of various bit sizes from a uint256 seed.
+
+- [RandomIntXInRange.sol](src/libraries/RandomIntXInRange.sol) – Generates pseudo-random signed integers within a range from a uint256 seed.
+
+- [RandomUintX.sol](src/libraries/RandomUintX.sol) – Generates pseudo-random unsigned integers of various bit sizes from a uint256 seed.
+
+- [RandomUintXInRange.sol](src/libraries/RandomUintXInRange.sol) – Generates pseudo-random unsigned integers within a range from a uint256 seed.
+
+- [RandomUtils.sol](src/libraries/RandomUtils.sol) – Utility functions built on top of the SwapOrNotShuffle library for random selections.
+
+- [SwapOrNotShuffle.sol](src/libraries/SwapOrNotShuffle.sol) – Implements the Swap-or-Not shuffle algorithm for deterministic, gas-efficient random permutations. 
+
+
+Use cases:
+
+- On-chain lotteries & games
+
+- Random NFT traits or distributions
+
+- Fair ordering (e.g. whitelist shuffling)
+
+- Random number generation with deterministic inputs
+
 
 ## Local Development
 
@@ -78,10 +104,6 @@ forge fmt
 ```sh
 forge doc --serve --port 4000
 ```
-
-## Scripts
-
-You can find `foundry scripts` inside the `/script` dir to interact with the contracts. For more details, please check the [scripts usage document](/script/README.md).
 
 
 ## License
