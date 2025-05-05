@@ -83,6 +83,7 @@ forge doc --serve --port 4000
 
 You can find `foundry scripts` inside the `/script` dir to interact with the contracts. For more details, please check the [scripts usage document](/script/README.md).
 
-## Security
 
 ## License
+
+This library is licensed under the MIT License which can be accessed [here](LICENSE).
