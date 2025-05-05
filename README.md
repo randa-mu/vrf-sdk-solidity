@@ -1,4 +1,4 @@
-## vrf-sdk-solidity
+# vrf-sdk-solidity
 
 * [Introduction ](#introduction-)
 * [Local Development](#local-development)
