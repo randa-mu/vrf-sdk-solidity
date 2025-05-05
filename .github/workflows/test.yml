@@ -1,0 +1,36 @@
+name: Foundry
+
+on:
+  push:
+      branches:
+          - main
+  pull_request:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build-and-test:
+      runs-on: ubuntu-latest
+      steps:
+          - uses: actions/checkout@v4
+            with:
+                submodules: recursive
+
+          - name: Install foundry
+            uses: foundry-rs/foundry-toolchain@v1
+            with:
+                version: nightly
+
+          - name: Run foundry build
+            run: forge build --force --skip test --sizes
+
+          - name: Run foundry fmt check
+            run: forge fmt --check    
+
+          - name: Run foundry tests
+            run: FOUNDRY_PROFILE=test forge test --gas-report
+
+          - name: Run foundry coverage
+            run: FOUNDRY_PROFILE=coverage forge coverage --report summary
