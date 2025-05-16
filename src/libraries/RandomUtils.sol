@@ -46,6 +46,7 @@ library RandomUtils {
     }
 
     /// @notice Applies modulus to a seed for generating a bounded pseudo-random unsigned value
+    /// @notice Does not suffer from modulo bias because of the 192 bits of difference between args
     /// @param seed The seed value
     /// @param mod The modulus
     /// @return result `seed % mod`
