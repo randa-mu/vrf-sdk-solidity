@@ -46,7 +46,7 @@ contract MockRandomnessConsumer {
         return SwapOrNotShuffle.shuffleIndices(count, seed);
     }
 
-    function callBytesToUint64(bytes memory input) external view returns (uint64) {
+    function callBytesToUint64(bytes calldata input) external pure returns (uint64) {
         return SwapOrNotShuffle.bytesToUint64(input);
     }
 }

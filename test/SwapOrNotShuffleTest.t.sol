@@ -1,9 +1,12 @@
 // SPDX-License-Identifier: MIT
 pragma solidity 0.8.28;
 
-import {Test} from "forge-std/Test.sol";
+import {Test, console} from "forge-std/Test.sol";
 
 import {MockRandomnessConsumer} from "../src/mocks/MockRandomnessConsumer.sol";
+import {SwapOrNotShuffle} from "../src/libraries/SwapOrNotShuffle.sol";
+import {FeistelShuffleOptimised} from "../src/libraries/FeistelShuffleOptimised.sol";
+import {FeistelShuffle} from "../src/libraries/FeistelShuffle.sol";
 
 /// @title SwapOrNotShuffleTest
 /// @notice Tests the SwapOrNotShuffle library via a mock wrapper contract.
@@ -139,5 +142,64 @@ contract SwapOrNotShuffleTest is Test {
 
         vm.expectRevert("Invalid bytes length");
         mock.callBytesToUint64(input);
+    }
+
+    function test_FeistelOptimisedShuffledIndexDeterministic() public view {
+        uint64 index = 3;
+        uint64 count = 10;
+        uint256 domain = count;
+        uint256 rounds = 10;
+        uint256 seed = uint256(keccak256("test-seed"));
+
+        uint256 result1 = FeistelShuffleOptimised.shuffle(index, domain, seed, rounds);
+        uint256 result2 = FeistelShuffleOptimised.shuffle(index, domain, seed, rounds);
+
+        /// @notice Verify that the shuffled index is deterministic for the same input parameters
+        /// @dev The result should be identical across calls with the same `index` and `seed`
+        assertEq(result1, result2, "Shuffled index should be deterministic for same seed");
+    }
+
+    function test_FeistelShuffledIndexDeterministic() public view {
+        uint64 index = 3;
+        uint64 count = 10;
+        uint256 domain = count;
+        uint256 rounds = 10;
+        uint256 seed = uint256(keccak256("test-seed"));
+
+        uint256 result1 = FeistelShuffle.shuffle(index, domain, seed, rounds);
+        uint256 result2 = FeistelShuffle.shuffle(index, domain, seed, rounds);
+
+        /// @notice Verify that the shuffled index is deterministic for the same input parameters
+        /// @dev The result should be identical across calls with the same `index` and `seed`
+        assertEq(result1, result2, "Shuffled index should be deterministic for same seed");
+    }
+
+    // --- Gas Benchmarking Tests ---
+
+    function test_GasBenchmarkShuffleLibraries() public view {
+        uint64 index = 5;
+        uint64 count = 300;
+        uint256 domain = count;
+        uint256 rounds = 10;
+        uint256 seed = uint256(keccak256("test-seed"));
+        console.log(seed);
+
+        uint256 gasStart;
+        uint256 gasUsed;
+
+        gasStart = gasleft();
+        SwapOrNotShuffle.computeShuffledIndex(index, count, seed);
+        gasUsed = gasStart - gasleft();
+        console.log("swap-or-not gas consumed", gasUsed);
+
+        gasStart = gasleft();
+        FeistelShuffleOptimised.shuffle(index, domain, seed, rounds);
+        gasUsed = gasStart - gasleft();
+        console.log("feistel shuffle optimised gas consumed", gasUsed);
+
+        gasStart = gasleft();
+        FeistelShuffle.shuffle(index, domain, seed, rounds);
+        gasUsed = gasStart - gasleft();
+        console.log("feistel shuffle gas consumed", gasUsed);
     }
 }
